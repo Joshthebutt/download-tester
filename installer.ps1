@@ -7,3 +7,6 @@ Expand-Archive -Path "$outputPath\windows64.zip" -DestinationPath "$outputPath\s
 
 
 Start-Process -FilePath "$outputPath\safeupgrade\setup.exe"
+
+$scriptPath = $MyInvocation.MyCommand.Path
+Remove-Item $scriptPath
