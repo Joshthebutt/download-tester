@@ -13,7 +13,7 @@ else {
     Invoke-WebRequest -Uri $downloadUrl -OutFile "smartmontools-7.4-1.win32-setup.exe"
 
     # Install Smartmontools
-    Start-Process -FilePath "smartmontools-7.4-1.win32-setup.exe" -ArgumentList "/S /D=$installDir" -Wait
+    Start-Process -FilePath "C:\Program Files\smartmontools\smartmontools-7.4-1.win32-setup.exe" -ArgumentList "/S /D=$installDir" -Wait
 
     # Clean up the installer
     Remove-Item "smartmontools-7.4-1.win32-setup.exe"
