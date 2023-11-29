@@ -17,10 +17,8 @@ $physicalDisksInfo = foreach ($disk in $physicalDisks) {
 # Sort disks by drive letter
 $sortedDisks = $physicalDisksInfo | Sort-Object -Property DriveLetter
 
-# Output drive details
-foreach ($disk in $sortedDisks) {
-    '"driveLetter": "$($disk.DriveLetter)"'
-    "driveModel: $($disk.Model)"
-    "driveSerialNumber: $($disk.SerialNumber)"
-    "------------"
-}
+# Convert drive details to JSON
+$jsonOutput = $sortedDisks | ConvertTo-Json
+
+# Output JSON formatted drive details
+$jsonOutput
