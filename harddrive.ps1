@@ -14,11 +14,16 @@ $physicalDisksInfo = foreach ($disk in $physicalDisks) {
     }
 }
 
+# Filter out items where DriveLetter is null
+$filteredDisks = $physicalDisksInfo | Where-Object { $_.DriveLetter -ne $null }
+
 # Sort disks by drive letter
-$sortedDisks = $physicalDisksInfo | Sort-Object -Property DriveLetter
+$sortedDisks = $filteredDisks | Sort-Object -Property DriveLetter
 
-# Convert drive details to JSON
-$jsonOutput = $sortedDisks | ConvertTo-Json
-
-# Output JSON formatted drive details
-$jsonOutput
+# Output drive details to console
+foreach ($disk in $sortedDisks) {
+    "{'Drive Letter': $($disk.DriveLetter)"
+    "'Drive Model': $($disk.Model)"
+    "'Drive Serial Number': $($disk.SerialNumber)}"
+    "------------"
+}
