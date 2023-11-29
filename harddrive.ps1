@@ -19,8 +19,8 @@ $sortedDisks = $physicalDisksInfo | Sort-Object -Property DriveLetter
 
 # Output drive details
 foreach ($disk in $sortedDisks) {
-    "{driveLetter: $($disk.DriveLetter)"
+    "driveLetter: $($disk.DriveLetter)"
     "driveModel: $($disk.Model)"
-    "driveSerialNumber: $($disk.SerialNumber)}"
+    "driveSerialNumber: $($disk.SerialNumber)"
     "------------"
 }
