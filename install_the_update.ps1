@@ -5,7 +5,7 @@
     $installDir = "C:\programdata\drive adviser"
 
     # Download the update
-    Invoke-WebRequest -Uri $downloadUrl -OutFile "$installDir\drive_adviser.msix"
+    Invoke-WebRequest -Uri $downloadUrl -OutFile "$installDir\drive_adviser.appinstaller"
 
     # Install Smartmontools
     Start-Process -FilePath "C:\programdata\drive adviser\drive_adviser.msix" -ArgumentList "/S /D=$installDir" -Wait
