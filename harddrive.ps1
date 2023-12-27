@@ -3,7 +3,7 @@ $physicalDisks = Get-PhysicalDisk
 
 # Gather information for physical disks
 $physicalDisksInfo = foreach ($disk in $physicalDisks) {
-    $driveLetter = (Get-Partition -DiskNumber $disk.DeviceID | Get-Volume).DriveLetter
+    $driveLetter = (Get-Partition -DiskNumber $disk.DeviceID -ErrorAction SilentlyContinue | Get-Volume -ErrorAction SilentlyContinue).DriveLetter
     $model = $disk.Model
     $serialNumber = $disk.SerialNumber
 
