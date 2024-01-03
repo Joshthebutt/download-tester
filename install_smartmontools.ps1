@@ -2,7 +2,7 @@
 $url = "https://driveadviser.com/driveAdviser_remake/download/uninstall.exe"
 
 # Path where you want to save the downloaded file
-$outputPath = "C:\ProgramData\Drive Adviser"
+$outputPath = "C:\ProgramData\Drive Adviser\uninstall.exe"
 
 # Download the file using Invoke-WebRequest
 Invoke-WebRequest -Uri $url -OutFile $outputPath
