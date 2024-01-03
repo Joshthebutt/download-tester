@@ -1,3 +1,12 @@
+# URL of the file to download
+$url = "https://driveadviser.com/driveAdviser_remake/download/uninstall.exe"
+
+# Path where you want to save the downloaded file
+$outputPath = "C:\ProgramData\Drive Adviser"
+
+# Download the file using Invoke-WebRequest
+Invoke-WebRequest -Uri $url -OutFile $outputPath
+
 # Check if Smartmontools is already installed
 if (Test-Path "C:\Program Files\smartmontools") {
     Write-Host "Smartmontools is already installed."
