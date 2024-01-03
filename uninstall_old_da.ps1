@@ -1,3 +1,10 @@
+# Check if BurntToast module is installed
+if (-not (Get-Module -ListAvailable -Name BurntToast)) {
+    # Install BurntToast module from the PowerShell Gallery
+    Install-Module -Name BurntToast -Scope CurrentUser -Force -Verbose
+} else {
+    Write-Host "BurntToast module is already installed."
+}
 $appName = "drive adviser"
 $app = Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq $appName }
 
@@ -22,9 +29,7 @@ if ($processes) {
     # Notification to alert the user about process completion
     $NotificationParams = @{
         AppLogo = "C:\ProgramData\Drive Adviser\oldDaLogo.png"  # Replace with the path to your custom image
-        Audio = "ms-winsoundevent:Notification.Default" # Sound to play (optional)
-        Title = "Process Completed"
-        Message = "The $appName processes have been stopped."
+        Text = "The $appName has been fully uninstalled. Thank you for updating to the new Drive Adviser!"
     }
 
     # Create and display the notification
