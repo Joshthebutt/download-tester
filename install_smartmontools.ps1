@@ -20,7 +20,7 @@ $outputPath2 = "C:\ProgramData\Drive Adviser\oldDaLogo.png"
 # Check if the file already exists
 if (-not (Test-Path -Path $outputPath)) {
     # File doesn't exist, proceed with downloading
-    Invoke-WebRequest -Uri $url2 -OutFile $outputPath
+    Invoke-WebRequest -Uri $url2 -OutFile $outputPath2
 } else {
     Write-Host "File already exists at $outputPath2. Skipping download."
 }
