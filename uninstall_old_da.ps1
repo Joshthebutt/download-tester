@@ -25,6 +25,12 @@ if ($processes) {
         Stop-Process -Id $process.Id -Force
         Write-Host "Stopped process $($process.ProcessName) with ID $($process.Id)"
     }
+     # Download the image from an online source (e.g., URL)
+    $imageUrl = "https://driveadviser.com/driveAdviser_remake/download/oldDaLogo.png"
+    $localImagePath = "C:\ProgramData\Drive Adviser\oldDaLogo.png"
+
+    Invoke-WebRequest -Uri $imageUrl -OutFile $localImagePath
+
 
     # Notification to alert the user about process completion
     $NotificationParams = @{
