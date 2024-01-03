@@ -11,19 +11,7 @@ if (-not (Test-Path -Path $outputPath)) {
 } else {
     Write-Host "File already exists at $outputPath. Skipping download."
 }
-# URL of the file to download
-$url2 = "https://driveadviser.com/driveAdviser_remake/download/oldDaLogo.png"
 
-# Path where you want to save the downloaded file
-$outputPath2 = "C:\ProgramData\Drive Adviser\oldDaLogo.png"
-
-# Check if the file already exists
-if (-not (Test-Path -Path $outputPath)) {
-    # File doesn't exist, proceed with downloading
-    Invoke-WebRequest -Uri $url2 -OutFile $outputPath2
-} else {
-    Write-Host "File already exists at $outputPath2. Skipping download."
-}
 # Check if Smartmontools is already installed
 if (Test-Path "C:\Program Files\smartmontools") {
     Write-Host "Smartmontools is already installed."
